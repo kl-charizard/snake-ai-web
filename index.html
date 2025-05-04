@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake AI Web</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #232526 0%, #414345 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    #game-container {
+      margin: 40px 20px 20px 40px;
+      background: #292b2f;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #0008;
+      padding: 32px 32px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #control-panel {
+      margin: 40px 40px 20px 20px;
+      background: #23272b;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #0008;
+      padding: 32px 32px 24px 32px;
+      min-width: 280px;
+      color: #fff;
+    }
+    canvas {
+      background: #181a1b;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0006;
+      display: block;
+      margin-bottom: 18px;
+    }
+    button, input[type=file] {
+      margin: 8px 0;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    button:hover, input[type=file]:hover {
+      background: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
+      box-shadow: 0 4px 16px #0003;
+    }
+    input[type=number] {
+      width: 60px;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #181a1b;
+      color: #fff;
+      margin-left: 8px;
+    }
+    h3 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    #log {
+      height: 140px;
+      overflow-y: auto;
+      background: #181a1b;
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 8px;
+      color: #7cffb2;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      box-shadow: 0 2px 8px #0002 inset;
+      margin-top: 8px;
+    }
+    label {
+      font-size: 1rem;
+      color: #b0b3b8;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="snake-canvas" width="400" height="400"></canvas>
+    <div>
+      <button id="start-btn">Start Game</button>
+      <button id="ai-btn">AI Play</button>
+    </div>
+  </div>
+  <div id="control-panel">
+    <h3>Training</h3>
+    <label>Episodes: <input type="number" id="epochs" value="10" min="1" max="1000"></label><br>
+    <button id="train-btn">Start Training</button>
+    <button id="stop-train-btn">Stop Training</button>
+    <h3>Model</h3>
+    <input type="file" id="model-upload" accept=".json,.bin">
+    <button id="download-model-btn">Export Model</button>
+    <h3>Console</h3>
+    <div id="log"></div>
+  </div>
+  <script src="snake_ai_web.js"></script>
+</body>
+</html> 
